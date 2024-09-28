@@ -14,12 +14,13 @@ services:
     build: ./docker/php
     volumes:
       - ./:/app
+      - ./docker/php/php-dev.ini:/usr/local/etc/php/conf.d/php-dev.ini
     networks:
       - ecommerce
-    ports:
-      - "9000:9000"
     depends_on:
       - db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   db:
     image: mysql:latest
     ports:
