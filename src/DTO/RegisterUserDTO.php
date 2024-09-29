@@ -2,16 +2,19 @@
 
 declare(strict_types=1);
 
+namespace App\DTO;
+
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class RegisterUserDTO
+final readonly class RegisterUserDTO
 {
-  #[Assert\Email(message: 'Invalid email')]
-  private string $emailAddress;
-
-  #[Assert\PasswordStrength]
-  private string $password;
-
-  #[Assert\EqualTo(propertyPath: 'password')]
-  private string $comparePassword;
+  public function __construct(
+    #[Assert\Email(message: 'Invalid email')]
+    public string $emailAddress,
+    #[Assert\PasswordStrength]
+    public string $password,
+    #[Assert\EqualTo(propertyPath: 'password')]
+    public string $comparePassword
+  ) {
+  }
 }
