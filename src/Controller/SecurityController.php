@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Service\RegisterUserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use App\DTO\RegisterUserDTO;
@@ -13,11 +15,11 @@ class SecurityController extends AbstractController
 {
     #[Route('/registration', methods: ['POST'], name: 'registration')]
     public function registration(
-        #[MapRequestPayload] RegisterUserDTO $registerUserDTO
-    ): JsonResponse {
-        return $this->json([
-            'message' => 'Hello',
-            'path' => 'src/Controller/SecurityController.php',
-        ]);
+        #[MapRequestPayload] RegisterUserDTO $registerUserDTO,
+        RegisterUserService $registerUserService
+    ): Response {
+        $registerUserService->register($registerUserDTO);
+
+        return new Response(null, Response::HTTP_CREATED);
     }
 }
