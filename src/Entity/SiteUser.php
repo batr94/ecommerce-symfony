@@ -4,9 +4,10 @@ namespace App\Entity;
 
 use App\Repository\SiteUserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: SiteUserRepository::class)]
-class SiteUser
+final class SiteUser implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
