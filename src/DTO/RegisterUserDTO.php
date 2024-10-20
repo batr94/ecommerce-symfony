@@ -14,8 +14,6 @@ final readonly class RegisterUserDTO
     public string $phoneNumber,
     #[Assert\PasswordStrength(minScore: Assert\PasswordStrength::STRENGTH_WEAK)]
     public string $password,
-    #[Assert\EqualTo(propertyPath: 'password', message: 'The passwords do not match')]
-    public string $comparePassword
   ) {
   }
 }
