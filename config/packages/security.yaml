@@ -15,10 +15,10 @@ security:
             security: false
         login:
             provider: app_user_provider
-            pattern: ^/security/login
+            pattern: ^/api/security/login
             stateless: true
             json_login:
-                check_path: /security/login_check
+                check_path: /api/security/login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         main:

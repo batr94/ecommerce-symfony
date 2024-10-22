@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use App\DTO\RegisterUserDTO;
 
-#[Route('/security', name: 'app_security_')]
+#[Route('/api/security', name: 'app_security_')]
 class SecurityController extends AbstractController
 {
     #[Route('/registration', methods: ['POST'], name: 'registration')]

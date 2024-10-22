@@ -5,4 +5,6 @@ controllers:
     type: attribute
 
 api_login_check:
-    path: /security/login_check
+    path: /api/security/login_check
+    methods: POST
+
