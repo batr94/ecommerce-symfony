@@ -5,4 +5,4 @@ lexik_jwt_authentication:
 
     blocklist_token:
         enabled: true
-        cache: cache.app
+        cache: block_list_token_cache_pool
