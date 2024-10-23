@@ -8,6 +8,7 @@
 /var/
 /vendor/
 /docker/mysql/data
+/docker/redis/data
 ###< symfony/framework-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
