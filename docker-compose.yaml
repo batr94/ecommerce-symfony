@@ -43,11 +43,16 @@ services:
     networks:
       - ecommerce
   redis:
-    image: redis/redis-stack
+    build:
+      context: ./docker/redis
+      args:
+        - UID=${UID}
+        - GID=${GID}
     ports:
       - "8001:8001"
     volumes:
       - ./docker/redis/data:/data
+      - ./docker/redis/redisinsight:/redisinsight
     networks:
       - ecommerce
 
