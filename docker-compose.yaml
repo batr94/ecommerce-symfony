@@ -14,7 +14,11 @@ services:
       - php
       - db
   php:
-    build: ./docker/php
+    build:
+      context: ./docker/php
+      args:
+        - UID=${UID}
+        - GID=${GID}
     volumes:
       - ./:/app
       - ./docker/php/php-dev.ini:/usr/local/etc/php/conf.d/php-dev.ini
