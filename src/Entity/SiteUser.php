@@ -18,7 +18,7 @@ final class SiteUser implements UserInterface, PasswordAuthenticatedUserInterfac
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email_address = null;
 
     #[ORM\Column(length: 255, nullable: true)]
