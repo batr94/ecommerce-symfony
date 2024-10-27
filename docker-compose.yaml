@@ -30,13 +30,14 @@ services:
       - "host.docker.internal:host-gateway"
   db:
     image: mysql:latest
+    user: "${UID}:${GID}"
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_DATABASE: 'ecommerce'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'user'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
     networks:
