@@ -15,7 +15,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 final readonly class RegisterUserDTO
 {
   /**
-   * TODO: Добавить проверку на уникальность email и номера телефона
    * TODO: Добавить проверку на правильность номера телефона
    */
   public function __construct(
