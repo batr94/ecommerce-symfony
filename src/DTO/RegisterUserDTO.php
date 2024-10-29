@@ -11,13 +11,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[UniqueEntity(
   fields: ['emailAddress' => 'email_address'],
   entityClass: SiteUser::class,
+  groups: ['Strict'],
 )]
+#[Assert\GroupSequence(['RegisterUserDTO', 'Strict'])]
 final readonly class RegisterUserDTO
 {
   /**
    * TODO: Добавить проверку на правильность номера телефона
    */
   public function __construct(
+    #[Assert\NotBlank()]
     #[Assert\Email(message: 'Invalid email')]
     public string $emailAddress,
     public string $phoneNumber,
