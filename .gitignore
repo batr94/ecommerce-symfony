@@ -8,9 +8,6 @@
 /public/bundles/
 /var/
 /vendor/
-/docker/mysql/data
-/docker/redis/data
-/docker/redis/redisinsight
 ###< symfony/framework-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
